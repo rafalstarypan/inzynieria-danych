@@ -1,0 +1,54 @@
+{
+  "pipeline": [
+    "string_encrypt",
+    "dead_code",
+    "cff",
+    "renaming"
+  ],
+  "obfuscators": {
+    "renaming": {
+      "name_length": 8,
+      "alphabet": "lower",
+      "seed": null
+    },
+    "dead_code": {
+      "insertion_probability": 0.3,
+      "max_insertions": 5,
+      "templates": [
+        "unused_var",
+        "dead_if",
+        "dead_for",
+        "dead_while"
+      ],
+      "seed": null
+    },
+    "string_encrypt": {
+      "key_length": null,
+      "skip_docstrings": true,
+      "min_string_length": 1,
+      "seed": null
+    },
+    "cff": {
+      "shuffle_blocks": true,
+      "state_var_name": "_state",
+      "apply_to_classes": true,
+      "seed": null
+    }
+  },
+  "generator": {
+    "num_samples": 10,
+    "types": [
+      "arithmetic",
+      "loop",
+      "string",
+      "class"
+    ],
+    "seed": 42
+  },
+  "detector": {
+    "thresholds": {
+      "total_entropy": 4.8,
+      "identifier_entropy": 4.2
+    }
+  }
+}
