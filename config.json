@@ -1,6 +1,7 @@
 {
   "pipeline": [
     "string_encrypt",
+    "mba",
     "dead_code",
     "cff",
     "renaming"
@@ -32,6 +33,13 @@
       "shuffle_blocks": true,
       "state_var_name": "_state",
       "apply_to_classes": true,
+      "seed": null
+    },
+    "mba": {
+      "apply_probability": 0.7,
+      "min_value": -1000,
+      "max_value": 1000,
+      "expression_depth": 1,
       "seed": null
     }
   },
